@@ -29,7 +29,9 @@ ul a:hover {
 }
 #save {
     margin-bottom: 5px;
-    width: 50px;
+    width: 100px;        
+    border: solid var(--main-color) 2px;
+    border-radius: 8px;
     font-weight: bold;
 }
 table {
@@ -52,6 +54,8 @@ ul #home-link i {
 h2 {
     text-align: center;
 }
-form * {
+form input,
+textarea {
     width: 100%;
+    padding: 5px;
 }
