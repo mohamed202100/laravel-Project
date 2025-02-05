@@ -27,6 +27,9 @@ ul a:hover {
     font-weight: 700;
     color: var(--main-color);
 }
+form * {
+    margin-left: 5px;
+}
 #save {
     margin-bottom: 5px;
     width: 50px;
