@@ -9,16 +9,37 @@
 
     </head>
     <body>
-
-        <nav>
-            <ul class="row">
-                <li class="col-2"><a href="/" id="home-link"><i class="fa-solid fa-house"></i> Home</a></li>
-                <li class="col-2"><a href="/books/create">Create Book</a></li>
-                <li class="col-2"><a href="/books/index">Show Books</a></li>
+        <div class="menu">
+            <ul>
+              <li class="profile ">
+                <div class="img-box">
+                  <img src="{{asset('upload/images/user.webp')}}" alt="profile" />
+                </div>
+                <h2>Muhamad</h2>
+              </li>
+              <li>
+                <a href="/">
+                  <i class="fas fa-home"></i>
+                  <p>Home</p>
+                </a>
+              </li>
+              <li>
+                <a href="/books/create">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  <p>Create Book</p>
+                </a>
+              </li>
+              <li>
+                <a href="/books/index">
+                    <i class="fa-solid fa-book"></i>
+                  <p>Show Books</p>
+                </a>
+              </li>
             </ul>
-        </nav>
-        <div class="container">
-        @yield('body')
+        </div>
+
+        <div class="content">
+        @yield('my-body')
         </div>
         @include('layout.footer')
     </body>

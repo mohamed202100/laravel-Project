@@ -1,57 +1,103 @@
 * {
-    padding: 0%;
+    padding: 0;
     margin: 0;
+    color: white;
+    font-family: sans-serif;
 }
 :root {
     --main-color: #0b5cab;
     --transparent-color: rgba(46, 167, 204, 0.7);
-    --main-margin: 50px;
 }
-.container {
-    margin-top: 10px;
-    padding: 20px;
+body {
+    background-color: #001;
+    display: flex;
 }
-nav {
-    padding: 25px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+.menu {
+    background-color: #123;
+    width: 100px;
+    height: 100vh;
+    padding: 30px 10px 20px 0px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.menu:hover {
+    width: 280px;
+}
+.profile {
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+    gap: 20px;
+}
+.profile .img-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid white;
+    flex-shrink: 0;
+}
+.profile .img-box img {
+    width: 100%;
+}
+.profile h2 {
+    font-size: 20px;
+    text-transform: capitalize;
 }
 ul {
     list-style: none;
+    position: relative;
+    height: 95%;
 }
-ul a {
+ul li a {
+    display: block;
     text-decoration: none;
-    color: black;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    display: flex;
+    gap: 30px;
+    transition: 0.5s;
 }
-ul a:hover {
-    transition: 0.3s;
-    font-weight: 700;
-    color: var(--main-color);
+ul li a:hover,
+td:hover {
+    background-color: #ffffff55;
 }
-form * {
-    margin-left: 5px;
+ul li a i {
+    font-size: 30px;
 }
-#save {
-    margin-bottom: 5px;
-    width: 50px;
-    font-weight: bold;
-}
-table {
+.content {
     width: 100%;
-    border-collapse: collapse;
+    margin: 20px;
 }
-th,
-td {
-    border: 1px solid #ddd;
-    padding: 10px 5px;
-    text-align: left;
-}
-th,
-nav {
-    background-color: #f2f2f2;
-}
-ul #home-link i {
-    color: var(--main-color);
-}
-h2 {
+.content * {
+    color: #123;
     text-align: center;
+}
+legend {
+    color: var(--main-color) !important;
+    margin-bottom: 20px !important;
+}
+.form-container {
+    max-width: 500px;
+    margin: auto;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: -2px 2px 5px 2px rgba(0, 0, 0, 0.2);
+}
+/* تسميات الحقول */
+.form-container label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+}
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 15px;
 }
