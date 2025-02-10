@@ -15,7 +15,7 @@
                 <div class="img-box">
                   <img src="{{asset('upload/images/user.webp')}}" alt="profile" />
                 </div>
-                <h2>Muhamad</h2>
+                <h2>Library </h2>
               </li>
               <li>
                 <a href="/">
@@ -24,15 +24,9 @@
                 </a>
               </li>
               <li>
-                <a href="/books/create">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                  <p>Create Book</p>
-                </a>
-              </li>
-              <li>
                 <a href="/books/index">
                     <i class="fa-solid fa-book"></i>
-                  <p>Show Books</p>
+                  <p> Books</p>
                 </a>
               </li>
             </ul>

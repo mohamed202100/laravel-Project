@@ -32,5 +32,6 @@
         @endforeach
 
     </tbody>
+    <tr><td colspan="8"><a href="/books/create"><button class="btn btn-success">Create New Book <i class="fa-solid fa-pen-to-square"></i></button></a></td></tr>
 </table>
 @endsection
