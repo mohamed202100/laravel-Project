@@ -29,6 +29,43 @@
                   <p> Books</p>
                 </a>
               </li>
+              <li>
+                <a href="/authors/index">
+                    <i class="fa-solid fa-person"></i>
+                  <p> Authors</p>
+                </a>
+              </li>
+              <li>
+                <a href="/students/index">
+                    <i class="fa-solid fa-school"></i>
+                  <p> Students</p>
+                </a>
+              </li>
+              <li>
+                <a href="/categories/index">
+                    <i class="fa-solid fa-list"></i>
+                    <p> Categories</p>
+                </a>
+              </li>
+              <li>
+                <a href="/auth/register">
+                    <i class="fa-solid fa-list"></i>
+                    <p> Register</p>
+                </a>
+              </li>
+              <li>
+                <a href="/auth/login">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <p> Login</p>
+                </a>
+              </li>
+              <li>
+                <a href="/auth/logout">
+                    <i class="fa-solid fa-list"></i>
+                    <p> Logout</p>
+                </a>
+              </li>
+
             </ul>
         </div>
 

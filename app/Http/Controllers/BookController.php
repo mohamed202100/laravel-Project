@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Book;
-
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -20,7 +20,8 @@ class BookController extends Controller
      * Show the form for creating a new resource.
      */
     public function create(){
-        return view('book.create');
+        $categories = Category::get();
+        return view('book.create',compact('categories'));
     }
 
     /**
@@ -32,8 +33,11 @@ class BookController extends Controller
             'name'=>['required', 'regex:/^[a-zA-Z\s]+$/'],
             'description'=>['required', 'regex:/^[a-zA-Z\s]+$/'],
             'price'=>'numeric|required',
-            'author'=>['required', 'regex:/^[a-zA-Z\s]+$/'],
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'author_id'=>'numeric|required',
+            'student_id'=>'numeric|required',
+            'category_ids'=>'required|array',
+            'category_ids.*'=>'integer',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         if($request->hasFile('image')){
@@ -47,18 +51,23 @@ class BookController extends Controller
         $name =$request->name;
         $description = $request->description;
         $price = $request->price;
-        $author = $request->author;
+        $author_id = $request->author_id;
+        $student_id = $request->student_id;
+
         $image = $filename;
 
         $data=[
             'name'=>$name,
             'description'=>$description,
             'price'=>$price,
-            'author'=>$author,
+            'author_id'=>$author_id,
+            'student_id'=>$student_id,
             'image'=>$image
         ];
 
-        Book::create($data);
+        $book = Book::create($data);
+        $category_ids = $request->category_ids;
+        $book->categories()->attach($category_ids);
         return $this->index();
 
     }
@@ -66,9 +75,10 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $book = Book::find($id);
+        return view('book.show', compact('book'));
     }
 
     /**
@@ -94,12 +104,14 @@ class BookController extends Controller
             'name'=>['required', 'regex:/^[a-zA-Z\s]+$/'],
             'description'=>['required', 'regex:/^[a-zA-Z\s]+$/'],
             'price'=>'numeric|required',
-            'author'=>['required', 'regex:/^[a-zA-Z\s]+$/'],
+            'author_id'=>'numeric|required',
+            'student_id'=>'numeric|required',
         ]);
         $name =$request->name;
         $description = $request->description;
         $price = $request->price;
-        $author = $request->author;
+        $author_id = $request->author_id;
+        $student_id = $request->student_id;
         $id= $request->id;
 
         $book=Book::find($id);
@@ -107,7 +119,8 @@ class BookController extends Controller
             'name'=>$name,
             'description'=>$description,
             'price'=>$price,
-            'author'=>$author
+            'author_id'=>$author_id,
+            'student_id'=>$student_id
         ];
         $book->update($data);
         return $this->index();

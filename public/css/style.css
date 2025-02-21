@@ -50,13 +50,12 @@ ul {
     height: 95%;
 }
 ul li a {
-    display: block;
     text-decoration: none;
     padding: 10px;
     margin: 10px 0;
     border-radius: 8px;
     display: flex;
-    gap: 30px;
+    gap: 50px;
     transition: 0.5s;
 }
 ul li a:hover,

@@ -19,11 +19,22 @@
         @error('price')
             <div style="color: red;">{{ $message }}</div>
         @enderror
-        <label for="author">author:</label>
-        <input type="text" id="author" name="author" value="{{old('author')}}">
-        @error('author')
+        <label for="author_id">author_id:</label>
+        <input type="author_id" id="author_id" name="author_id" value="{{old('author_id')}}">
+        @error('author_id')
             <div style="color: red;">{{ $message }}</div>
         @enderror
+        <label for="student_id">student_id:</label>
+        <input type="student_id" id="student_id" name="student_id" value="{{old('student_id')}}">
+        @error('student_id')
+            <div style="color: red;">{{ $message }}</div>
+        @enderror
+        <label>Categories</label>
+        <select name="category_ids[]" multiple>
+            @foreach ($categories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
+        </select>
         <label for="image">upload image:</label>
         <input type="file" id="image" name="image">
         <button class="btn btn-success">Create</button>

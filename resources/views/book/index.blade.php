@@ -2,13 +2,12 @@
 @section('my-body')
 <table  class="table table-striped ">
     <thead>
-        <th scope="col" >Id</th>
-        <th scope="col" >Name</th>
-        <th scope="col" >Description</th>
-        <th scope="col" >Price</th>
-        <th scope="col" >Author</th>
-        <th scope="col" >created_at</th>
-        <th scope="col-2">Actions</th>
+        <x-table-head>
+            <th scope="col" >Description</th>
+            <th scope="col" >Price</th>
+            <th scope="col" >author_id</th>
+            <th scope="col" >student_id</th>
+        </x-table-head>
     </thead>
     <tbody>
 
@@ -18,8 +17,8 @@
             <td>{{$book->name}}</td>
             <td>{{$book->description}}</td>
             <td>{{$book->price}}</td>
-            <td>{{$book->author}}</td>
-            <td>{{$book->created_at}}</td>
+            <td>{{$book->author_id}}</td>
+            <td>{{$book->student_id}}</td>
             <td><a href="/books/update/{{$book->id}}"><button class="btn btn-success">Update</button>
             <form action="/books/delete/{{$book->id}}" method="POST">
                 @csrf
@@ -27,11 +26,13 @@
                 <td><a href="/books/delete/{{$book->id}}"><button class="btn btn-danger ">Delete</button>
                 </a></td>
             </form>
+            <td><a href="/books/show/{{$book->id}}">show book</a></td>
+
 
         </tr>
         @endforeach
 
     </tbody>
-    <tr><td colspan="8"><a href="/books/create"><button class="btn btn-success">Create New Book <i class="fa-solid fa-pen-to-square"></i></button></a></td></tr>
+    <tr><td colspan="9"><a href="/books/create"><button class="btn btn-success">Create New Book <i class="fa-solid fa-pen-to-square"></i></button></a></td></tr>
 </table>
 @endsection
